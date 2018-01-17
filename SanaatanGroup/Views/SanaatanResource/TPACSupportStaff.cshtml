@@ -1,0 +1,43 @@
+﻿
+@model IEnumerable<SanaatanGroup.Models.SanaatanResource>
+@using SanaatanGroup.Models;
+@{
+    ViewBag.Title = "Team Sanaatan";
+    ApplicationDbContext db = new ApplicationDbContext();
+    var a = db._SanaatanResource.Where(m => m.Designation == "Quality Analyst"  || m.Designation == "Team Leader" || m.Designation == "Trainer" && m.Project == "GSTN TPAC").Where(m => m.Status == "Active" || m.Status == "ReJoin").OrderBy(m => m.Name).ToList();
+}
+
+<div class="page-title title-1">
+    <div class="container">
+        <div class="row">
+            <div class="cell-12">
+                <h1 class="fx" data-animate="fadeInLeft">Meet <span>the team</span></h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sectionWrapper">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in a)
+            {
+                <div class="cell-2 fx" data-animate="fadeInDown">
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img alt="" src="~/Content/UploadedImages/Sanaatan/@item.Image" height="50" width="50">
+                            <h3 style="color:black">@item.Name</h3>
+                            <center>  <span style="color:maroon;text-align:center">@item.Designation</span></center>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<br />
+
+
+

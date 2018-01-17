@@ -1,0 +1,37 @@
+﻿@using SanaatanGroup.Models
+@model LoginViewModel
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <a class="close-login" href="#"><i class="fa fa-times"></i></a>
+    <div class="container">
+        <p>Hello our valued visitor, We present you the best web solutions and high quality graphic designs with a lot of features. just login to your account and enjoy ...</p>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="login-controls">
+            <div class="skew-25 input-box left">
+                @*<input type="text" class="txt-box skew25" placeholder="User name Or Email" />*@
+                @Html.TextBoxFor(m => m.Email, new { @class = "txt-box skew25", placeholder = "User name Or Email" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="skew-25 input-box left">
+                @*<input type="password" class="txt-box skew25 " placeholder="Password" />*@
+                @Html.PasswordFor(m => m.Password, new { @class = "txt-box skew25", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="left skew-25 main-bg">
+                <input type="submit" class="btn skew25" value="Login" />
+            </div>
+            <div class="check-box-box">
+                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "check-box" })
+                @Html.LabelFor(m => m.RememberMe)
+                @Html.ActionLink("Forgot your password ?", "../Account/ForgotPassword")
+                @Html.ActionLink("Register as a new user", "../Account/Register")
+            </div>
+        </div>
+    </div>
+}
+<div class="social-list">
+    <section id="socialLoginForm">
+        @Html.Partial("~/Views/Account/_ExternalLoginsListPartial.cshtml", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+    </section>
+</div>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SanaatanGroup.Models.MediaHeading>
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="block">
+    <div class="block-head">
+        <div class="caption">
+
+            <span class="caption-subject font-blue-hoki bold uppercase" style="margin-left:20px"> Media Heading</span>
+
+        </div>
+    </div>
+    <div class="cell-12 fx" data-animate="fadeInLeft">
+        <a href="@Url.Action("Create", "MediaHeading")" class="pull-right btn btn-xs btn-primary">Add Media Heading</a>
+        <table class="table-style2">
+            <thead>
+
+                <tr>
+                    <th> Heading</th>
+                  
+
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            @item.MHeading
+
+                        </td>
+                       
+
+
+                        <td><a href="@Url.Action("Edit","MediaHeading", new { id=item.Id})">Edit</a></td>
+                        <td><a href="@Url.Action("Delete", "MediaHeading", new {id=item.Id})">Delete</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+
+    </div>
+
+</div>
+

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SanaatanGroup.Models.SanaatanResource>
+
+@{
+    ViewBag.Title = "List";
+}
+<div class="block">
+    <div class="block-head">
+        <div class="caption">
+
+            <span class="caption-subject font-blue-hoki bold uppercase" style="margin-left:20px"> List</span>
+
+        </div>
+    </div>
+    <div class="cell-12 fx" data-animate="fadeInLeft">
+        <a href="@Url.Action("Create", "SanaatanResource")" class="pull-right btn btn-xs btn-primary">Add Sanaatan Resource</a>
+        <table class="table-style2">
+            <thead>
+               
+                        <tr>
+                            <th> Name</th>
+                            <th>
+                                Designation
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Project
+                            </th>
+                            <th>
+                                Edit
+                            </th>
+                            <th>
+                                Delete
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        
+                            <tr>
+                                <td>
+                                    @item.Name
+
+                                </td>
+                                <td>
+                                    @item.Designation
+                                </td>
+                                
+                                <td>
+                                    @item.Status
+                                </td>
+                                <td>
+                                    @item.Project
+                                </td>
+
+
+                                <td><a href="@Url.Action("Edit","SanaatanResource", new { id=item.Id})">Edit</a></td>
+                                <td><a href="@Url.Action("Delete", "SanaatanResource", new {id=item.Id})">Delete</a></td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        <br />
+
+    </div>
+
+</div>
+

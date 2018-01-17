@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="page-title title-1">
+    <div class="container">
+        <div class="row">
+            <div class="cell-12">
+                <h1 class="fx" data-animate="fadeInLeft">Contact <span>us</span></h1>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="padd-top-50">
+    <div class="container">
+        <div class="row">
+            <div class="cell-7 contact-form fx" data-animate="fadeInLeft">
+                <h3 class="block-head">Get in Touch</h3>
+                <div class="padding-vertical">
+                    @using (Html.BeginForm("Contact","Message",FormMethod.Post))
+                    {
+                        <div class="cell-6">
+                            <div class="form-input">
+                                <label>Name<span class="red">*</span></label>
+                                <input type="text" name="Name" required>
+                            </div>
+                            <div class="form-input">
+                                <label>Address</label>
+                                <input type="text" name="Address" required>
+                            </div>
+                            <div class="form-input">
+                                <label>State</label>
+                                <input type="text" name="State" required>
+                            </div>
+                            <div class="form-input">
+                                <label>Phone<span class="red">*</span></label>
+                                <input type="text" name="Phone" required>
+                            </div>
+                        </div>
+                        <div class="cell-6">
+                            <div class="form-input">
+                                <label>Company Name</label>
+                                <input type="text" name="Company" required>
+                            </div>
+                            <div class="form-input">
+                                <label>Country</label>
+                                <input type="text" name="Country" required>
+                            </div>
+                            <div class="form-input">
+                                <label>City</label>
+                                <input type="text" name="City" required>
+                            </div>
+                            <div class="form-input">
+                                <label>Email<span class="red">*</span></label>
+                                <input type="email" name="Email" required>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="cell-12">
+                            <div class="form-input">
+                                <label>Message<span class="red">*</span></label>
+                                <textarea name="Message" required></textarea>
+                            </div>
+                            <div class="form-input">
+                                <input type="submit" class="btn btn-large main-bg" value="Submit">&nbsp;&nbsp;<input type="reset" class="btn btn-large" value="Reset">
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="cell-5 contact-detalis">
+                <h3 class="block-head">Contact Details</h3>
+                <p class="fx" data-animate="fadeInRight">Feel free to talk to our online representative at any time you please using our Live Chat system on our website or one of the below instant messaging programs. Please be patient while waiting for response.</p>
+                <hr class="hr-style4">
+                <div class="clearfix"></div>
+                <div class="padding-vertical">
+                    <div class="cell-5 fx" data-animate="fadeInRight">
+                        <h4 class="main-color bold">Sanaatan Group</h4>
+                        
+                        <h5>Email:</h5>
+                        <p>
+                        support@sanaatangroup.com
+                        </p>
+                        
+                    </div>
+                    <div class="cell-2"><br></div>
+                    <div class="cell-5 fx" data-animate="fadeInRight">
+                        <h4 class="main-color bold"><br /></h4>
+                        <h5>Phone:</h5>
+                        <p>+91 191-2432962</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

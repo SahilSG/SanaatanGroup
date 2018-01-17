@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0FF9495-2B48-4F31-A4AB-0B376366DA80}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SanaatanGroup</RootNamespace>
+    <AssemblyName>SanaatanGroup</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\ToastMessage.cs" />
+    <Compile Include="App_Start\Toastr.cs" />
+    <Compile Include="App_Start\ToastType.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ControllerExtensions.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MediaController.cs" />
+    <Compile Include="Controllers\MediaHeadingController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\SanaatanResourceController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobSeeker.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Media.cs" />
+    <Compile Include="Models\MediaHeading.cs" />
+    <Compile Include="Models\SanaatanResource.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\css\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\css\fonts\fontawesome-webfont862f.svg" />
+    <Content Include="Content\css\prettyPhoto.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\responsiven.css" />
+    <Content Include="Content\css\skins\default.css" />
+    <Content Include="Content\css\skins\images\logo-1.png" />
+    <Content Include="Content\css\skins\images\logo-10.png" />
+    <Content Include="Content\css\skins\images\logo-11.png" />
+    <Content Include="Content\css\skins\images\logo-12.png" />
+    <Content Include="Content\css\skins\images\logo-2 %281%29.png" />
+    <Content Include="Content\css\skins\images\logo-2.png" />
+    <Content Include="Content\css\skins\images\logo-3.png" />
+    <Content Include="Content\css\skins\images\logo-4.png" />
+    <Content Include="Content\css\skins\images\logo-5.png" />
+    <Content Include="Content\css\skins\images\logo-6.png" />
+    <Content Include="Content\css\skins\images\logo-7.png" />
+    <Content Include="Content\css\skins\images\logo-8.png" />
+    <Content Include="Content\css\skins\images\logo-9.png" />
+    <Content Include="Content\css\skins\images\logo.png" />
+    <Content Include="Content\css\skins\skin11.css" />
+    <Content Include="Content\css\skins\skin11old.css" />
+    <Content Include="Content\css\slick.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\bgs\block-bg-1.jpg" />
+    <Content Include="Content\images\bgs\block-bg-2.jpg" />
+    <Content Include="Content\images\bgs\block-bg-3.jpg" />
+    <Content Include="Content\images\bgs\block-bg-4.jpg" />
+    <Content Include="Content\images\bgs\block-bg-5.jpg" />
+    <Content Include="Content\images\blog\1.jpg" />
+    <Content Include="Content\images\blog\2.jpg" />
+    <Content Include="Content\images\blog\3.jpg" />
+    <Content Include="Content\images\blog\masonry\1.jpg" />
+    <Content Include="Content\images\blog\masonry\2.jpg" />
+    <Content Include="Content\images\blog\masonry\3.jpg" />
+    <Content Include="Content\images\blog\masonry\4.jpg" />
+    <Content Include="Content\images\blog\masonry\5.jpg" />
+    <Content Include="Content\images\blog\small\1.jpg" />
+    <Content Include="Content\images\blog\small\2.jpg" />
+    <Content Include="Content\images\blog\small\3.jpg" />
+    <Content Include="Content\images\blog\small\4.jpg" />
+    <Content Include="Content\images\blog\small\5.jpg" />
+    <Content Include="Content\images\boat.png" />
+    <Content Include="Content\images\clients\client-1.png" />
+    <Content Include="Content\images\clients\client-2.png" />
+    <Content Include="Content\images\clients\client-3.png" />
+    <Content Include="Content\images\clients\client-4.png" />
+    <Content Include="Content\images\clients\client-5.png" />
+    <Content Include="Content\images\clients\client-6.png" />
+    <Content Include="Content\images\clients\client-7.png" />
+    <Content Include="Content\images\clients\client-8.png" />
+    <Content Include="Content\images\clients\client-9.png" />
+    <Content Include="Content\images\devices.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\Governance11.png" />
+    <Content Include="Content\images\hire.png" />
+    <Content Include="Content\images\ie8-overlay.png" />
+    <Content Include="Content\images\logo-white.png" />
+    <Content Include="Content\images\page-titles\Page-title-1.jpg" />
+    <Content Include="Content\images\page-titles\Page-title-3.jpg" />
+    <Content Include="Content\images\patterns\1.png" />
+    <Content Include="Content\images\patterns\bg1.jpg" />
+    <Content Include="Content\images\patterns\bg10.jpg" />
+    <Content Include="Content\images\patterns\bg11.jpg" />
+    <Content Include="Content\images\patterns\bg12.jpg" />
+    <Content Include="Content\images\patterns\bg13.jpg" />
+    <Content Include="Content\images\patterns\bg14.jpg" />
+    <Content Include="Content\images\patterns\bg15.jpg" />
+    <Content Include="Content\images\patterns\bg2.jpg" />
+    <Content Include="Content\images\patterns\bg3.jpg" />
+    <Content Include="Content\images\patterns\bg4.jpg" />
+    <Content Include="Content\images\patterns\bg5.jpg" />
+    <Content Include="Content\images\patterns\bg6.jpg" />
+    <Content Include="Content\images\patterns\bg7.jpg" />
+    <Content Include="Content\images\patterns\bg8.jpg" />
+    <Content Include="Content\images\patterns\bg9.jpg" />
+    <Content Include="Content\images\patterns\dots.png" />
+    <Content Include="Content\images\patterns\gry-patt.png" />
+    <Content Include="Content\images\people\1.jpg" />
+    <Content Include="Content\images\people\2.jpg" />
+    <Content Include="Content\images\people\3.jpg" />
+    <Content Include="Content\images\people\4.jpg" />
+    <Content Include="Content\images\people\5.jpg" />
+    <Content Include="Content\images\people\6.jpg" />
+    <Content Include="Content\images\people\7.jpg" />
+    <Content Include="Content\images\people\8.jpg" />
+    <Content Include="Content\images\people\9.jpg" />
+    <Content Include="Content\images\planBG.png" />
+    <Content Include="Content\images\portfolio\1.jpg" />
+    <Content Include="Content\images\portfolio\2.jpg" />
+    <Content Include="Content\images\portfolio\3.jpg" />
+    <Content Include="Content\images\portfolio\4.jpg" />
+    <Content Include="Content\images\portfolio\5.jpg" />
+    <Content Include="Content\images\portfolio\6.jpg" />
+    <Content Include="Content\images\portfolio\7.jpg" />
+    <Content Include="Content\images\portfolio\8.jpg" />
+    <Content Include="Content\images\portfolio\cac.png" />
+    <Content Include="Content\images\portfolio\cfcdsc.png" />
+    <Content Include="Content\images\portfolio\ch.png" />
+    <Content Include="Content\images\portfolio\divine.png" />
+    <Content Include="Content\images\portfolio\egov.png" />
+    <Content Include="Content\images\portfolio\gst.jpg" />
+    <Content Include="Content\images\portfolio\lcm.jpg" />
+    <Content Include="Content\images\portfolio\pe.png" />
+    <Content Include="Content\images\portfolio\project efforts2.png" />
+    <Content Include="Content\images\portfolio\saferoofs.png" />
+    <Content Include="Content\images\portfolio\takshillaa.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\images\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\images\shop\pro-1.jpg" />
+    <Content Include="Content\images\shop\pro-2.jpg" />
+    <Content Include="Content\images\shop\pro-3.jpg" />
+    <Content Include="Content\images\shop\pro-4.jpg" />
+    <Content Include="Content\images\Slider.jpg" />
+    <Content Include="Content\images\slider\dummy.png" />
+    <Content Include="Content\images\slider\fullscreen\bg-1.jpg" />
+    <Content Include="Content\images\slider\slider-1\slide-1-bg.jpg" />
+    <Content Include="Content\images\slider\slider-1\slide-1-img.png" />
+    <Content Include="Content\images\slider\slider-1\slide-2-bg.jpg" />
+    <Content Include="Content\images\slider\slider-1\slide-2-img.png" />
+    <Content Include="Content\images\slider\slider-1\slide-3-bg.jpg" />
+    <Content Include="Content\images\slider\slider-1\slide-3-img.png" />
+    <Content Include="Content\images\slider\slider-2\slide-1-bg.jpg" />
+    <Content Include="Content\images\slider\slider-2\slide-2-bg.jpg" />
+    <Content Include="Content\images\slider\slider-2\slide-2-img-1.png" />
+    <Content Include="Content\images\slider\slider-2\slide-2-img-2.png" />
+    <Content Include="Content\images\slider\slider-2\slide-3-bg.jpg" />
+    <Content Include="Content\images\slider\slider-3\slide-1-bg.jpg" />
+    <Content Include="Content\images\slider\slider-3\slide-2-bg.jpg" />
+    <Content Include="Content\images\slider\slider-3\slide-3-bg.jpg" />
+    <Content Include="Content\js\html5.js" />
+    <Content Include="Content\js\jquery.animateNumber.min.js" />
+    <Content Include="Content\js\jquery.easypiechart.min.js" />
+    <Content Include="Content\js\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.placeholder.js" />
+    <Content Include="Content\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\js\jquery.sharrre.min.js" />
+    <Content Include="Content\js\jquery.totemticker.min.js" />
+    <Content Include="Content\js\menu_handler.js" />
+    <Content Include="Content\js\script.js" />
+    <Content Include="Content\js\slick.min.js" />
+    <Content Include="Content\js\telemetry.js" />
+    <Content Include="Content\js\waypoints.min.js" />
+    <Content Include="Content\Media\default-user.png" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\RegisterImages\default-user.png" />
+    <Content Include="Content\resume\default-user.png" />
+    <Content Include="Content\rs-plugin\css\settings.css" />
+    <Content Include="Content\rs-plugin\font\revicons90c6.svg" />
+    <Content Include="Content\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\rs-plugin\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Content\TeamImages\adilkhan.jpg" />
+    <Content Include="Content\TeamImages\akanshashrivastav.jpg" />
+    <Content Include="Content\TeamImages\akanshasoni.jpg" />
+    <Content Include="Content\TeamImages\anilkumar.jpg" />
+    <Content Include="Content\TeamImages\Anuradha.jpg" />
+    <Content Include="Content\TeamImages\arpitgupta.jpg" />
+    <Content Include="Content\TeamImages\Ashok Kapoor.jpg" />
+    <Content Include="Content\TeamImages\Bavneet Kaur.jpg" />
+    <Content Include="Content\TeamImages\Bhawna Atolia.jpg" />
+    <Content Include="Content\TeamImages\Deepshikha Garg.jpg" />
+    <Content Include="Content\TeamImages\default-user.png" />
+    <Content Include="Content\TeamImages\Dilip Maluka.jpg" />
+    <Content Include="Content\TeamImages\Ganesh Kumar Gupta.jpg" />
+    <Content Include="Content\TeamImages\Gouvardhan Sepat.jpg" />
+    <Content Include="Content\TeamImages\Gulshan Lamba.jpg" />
+    <Content Include="Content\TeamImages\Gurpreet Singh.jpg" />
+    <Content Include="Content\TeamImages\Heerika Shukla.jpg" />
+    <Content Include="Content\TeamImages\Himani Manral.jpg" />
+    <Content Include="Content\TeamImages\Jatinder Pal Singh.jpg" />
+    <Content Include="Content\TeamImages\Jyoti Chauhan.jpg" />
+    <Content Include="Content\TeamImages\Kanhi Lal.jpg" />
+    <Content Include="Content\TeamImages\Karan Maken.jpg" />
+    <Content Include="Content\TeamImages\Manpreet Kaur.jpg" />
+    <Content Include="Content\TeamImages\Mansi Anand.jpg" />
+    <Content Include="Content\TeamImages\Meenakshi Khiani.jpg" />
+    <Content Include="Content\TeamImages\Mohammad Aslam.jpg" />
+    <Content Include="Content\TeamImages\Navita Sharma.jpg" />
+    <Content Include="Content\TeamImages\Nawal Kishore Verma.jpg" />
+    <Content Include="Content\TeamImages\Neha Narula.jpg" />
+    <Content Include="Content\TeamImages\Nirupika.jpg" />
+    <Content Include="Content\TeamImages\Nisha Kumari.jpg" />
+    <Content Include="Content\TeamImages\Nishita Junega.jpg" />
+    <Content Include="Content\TeamImages\Nitesh Sharma.jpg" />
+    <Content Include="Content\TeamImages\Pinky Dahia.jpg" />
+    <Content Include="Content\TeamImages\Piyush garg.jpg" />
+    <Content Include="Content\TeamImages\Piyushika Kamad.jpg" />
+    <Content Include="Content\TeamImages\Priya Garg.jpg" />
+    <Content Include="Content\TeamImages\Reema Asija.jpg" />
+    <Content Include="Content\TeamImages\Ritu Gupta.jpg" />
+    <Content Include="Content\TeamImages\Rushita Jain.jpg" />
+    <Content Include="Content\TeamImages\Sandeep Joshi.jpg" />
+    <Content Include="Content\TeamImages\Shahid Saifi.jpg" />
+    <Content Include="Content\TeamImages\Shefali Teotia.jpg" />
+    <Content Include="Content\TeamImages\Shubhi Goel.jpg" />
+    <Content Include="Content\TeamImages\Simran Dang.jpg" />
+    <Content Include="Content\TeamImages\Smriti Tripathi.jpg" />
+    <Content Include="Content\TeamImages\Sumit Kumar Gupta.jpg" />
+    <Content Include="Content\TeamImages\Surabhi Srivasatava.jpg" />
+    <Content Include="Content\TeamImages\Surbhi Kaushal.jpg" />
+    <Content Include="Content\TeamImages\Taniya Kaur.jpg" />
+    <Content Include="Content\TeamImages\Tripti Chugh.jpg" />
+    <Content Include="Content\TeamImages\Urvashi Sharma.jpg" />
+    <Content Include="Content\TeamImages\Vikas Yadav.jpg" />
+    <Content Include="Content\TeamImages\Vikram Singh Kataria.jpg" />
+    <Content Include="Content\TeamImages\Vishakha Jalan.jpg" />
+    <Content Include="Content\TeamImages\Vishal Sharma.jpg" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170502000000000Anuradha.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170502234823645Anuradha.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170502235109196Bavneet Kaur.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170502235533076Jatinder Pal Singh.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170502235653734Karan Maken.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503000737667Mansi Anand.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503002820841Anuradha.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503002942482Mohammad Aslam.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503003128436Nishita Junega.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503003610050Piyush garg.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503005955504Sandeep Joshi.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503010327725Shefali Teotia.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503010851558Shubhi Goel.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503011451625Simran Dang.jpg" />
+    <Content Include="Content\UploadedImages\Erstwhile\20170503012020974default-user.png" />
+    <Content Include="Content\UploadedImages\Erstwhile\default-user.png" />
+    <Content Include="Content\UploadedImages\GSTN\default-user.png" />
+    <Content Include="Content\UploadedImages\Sanaatan\default-user.png" />
+    <Content Include="Content\UploadedImages\MCA\20170502222418671adilkhan.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502222612531akanshasoni.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502222701781akanshashrivastav.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502222905719anilkumar.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502222954486arpitgupta.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502223155580Bhawna Atolia.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502223230877Deepshikha Garg.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502223314175Dilip Maluka.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502223357957Ganesh Kumar Gupta.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502223601006Gouvardhan Sepat.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502223649553Gulshan Lamba.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502223837850Gurpreet Singh.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502223932147Heerika Shukla.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502224134679Himani Manral.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502224211523Jyoti Chauhan.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502225751847Kanhi Lal.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502225955380Manpreet Kaur.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502230206086Meenakshi Khiani.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502230501604Navita Sharma.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502230611074Nawal Kishore Verma.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502231231797Neha Narula.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502231501877Nisha Kumari.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502231820317Nitesh Sharma.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502231955693Pinky Dahia.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232047537Piyushika Kamad.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232157320Priya Garg.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232258617Ritu Gupta.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232347352Shahid Saifi.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232610619Smriti Tripathi.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232706839Sumit Kumar Gupta.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232752121Surabhi Srivasatava.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232831325Tripti Chugh.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502232921588Urvashi Sharma.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502233034901Vikas Yadav.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502233149136Vikram Singh Kataria.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502233321528Vishakha Jalan.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502233440998Vishal Sharma.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502233620532Reema Asija.jpg" />
+    <Content Include="Content\UploadedImages\MCA\20170502233748297Ashok Kapoor.jpg" />
+    <Content Include="Content\UploadedImages\MCA\default-user.png" />
+    <Content Include="Content\UploadedImages\TOAC\default-user.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="App_Code\ToastrBuilder.cshtml" />
+    <None Include="Properties\PublishProfiles\Sanaatan12082017.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\datepicker.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Message\Brands.cshtml" />
+    <Content Include="Views\Message\Contact.cshtml" />
+    <Content Include="Views\Message\CorporateExpedition.cshtml" />
+    <Content Include="Views\Message\Disclaimer.cshtml" />
+    <Content Include="Views\Message\EGovernance.cshtml" />
+    <Content Include="Views\Message\ExecutiveLeadership.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Message\KeyDifferentiators.cshtml" />
+    <Content Include="Views\Message\KeyIndustrialExposure.cshtml" />
+    <Content Include="Views\Message\MessageFromThePrimeMover.cshtml" />
+    <Content Include="Views\Message\MissionAndValues.cshtml" />
+    <Content Include="Views\Message\OurAlliancesAndAssociates.cshtml" />
+    <Content Include="Views\Message\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Message\ProjectAndEfforts.cshtml" />
+    <Content Include="Views\Message\PurposeOfOurExistence.cshtml" />
+    <Content Include="Views\Message\ServiceVerticals.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\New.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\LoginModal.cshtml" />
+    <Content Include="Views\Home\Careers.cshtml" />
+    <Content Include="Views\Shared\_CategoryLayout.cshtml" />
+    <Content Include="Views\Home\List.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Shared\_Flash.cshtml" />
+    <Content Include="Views\MediaHeading\Create.cshtml" />
+    <Content Include="Views\MediaHeading\Delete.cshtml" />
+    <Content Include="Views\MediaHeading\Edit.cshtml" />
+    <Content Include="Views\MediaHeading\List.cshtml" />
+    <Content Include="Views\Media\Create.cshtml" />
+    <Content Include="Views\Media\Delete.cshtml" />
+    <Content Include="Views\Media\Edit.cshtml" />
+    <Content Include="Views\Media\List.cshtml" />
+    <Content Include="Views\Media\ShowImages.cshtml" />
+    <Content Include="Views\Home\DisplayEmail.cshtml" />
+    <Content Include="Views\Shared\_Toastr.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Media\Delete1.cshtml" />
+    <Content Include="Views\Media\Event.cshtml" />
+    <Content Include="Views\Media\EventList.cshtml" />
+    <Content Include="Views\Media\Events.cshtml" />
+    <Content Include="Views\Media\Index.cshtml" />
+    <Content Include="Views\Media\ViewEvent.cshtml" />
+    <Content Include="Views\SanaatanResource\TPACAssociatePartner.cshtml" />
+    <Content Include="Views\SanaatanResource\TPACAssociateTrainee.cshtml" />
+    <Content Include="Views\SanaatanResource\Create.cshtml" />
+    <Content Include="Views\SanaatanResource\Delete.cshtml" />
+    <Content Include="Views\SanaatanResource\Edit.cshtml" />
+    <Content Include="Views\SanaatanResource\Erstwhile.cshtml" />
+    <Content Include="Views\SanaatanResource\TPACExecutivePartner.cshtml" />
+    <Content Include="Views\SanaatanResource\TPACExecutiveTrainee.cshtml" />
+    <Content Include="Views\SanaatanResource\List.cshtml" />
+    <Content Include="Views\SanaatanResource\TPACManagingPartner.cshtml" />
+    <Content Include="Views\SanaatanResource\TPACSupportStaff.cshtml" />
+    <Content Include="Views\SanaatanResource\TOACAssociatePartner.cshtml" />
+    <Content Include="Views\SanaatanResource\TOACExecutiveTrainee.cshtml" />
+    <Content Include="Views\SanaatanResource\TOACTeamLeader.cshtml" />
+    <Content Include="Views\SanaatanResource\TOACAssociateTrainee.cshtml" />
+    <Content Include="Views\SanaatanResource\MCAAssociateDirector.cshtml" />
+    <Content Include="Views\SanaatanResource\MCAAssociatePartner.cshtml" />
+    <Content Include="Views\SanaatanResource\JammuEstablishmentPartner.cshtml" />
+    <Content Include="Views\SanaatanResource\JammuTechnologyPartner.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\css\font-awesome\less\animated.less" />
+    <Content Include="Content\css\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\css\font-awesome\less\core.less" />
+    <Content Include="Content\css\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\css\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\css\font-awesome\less\icons.less" />
+    <Content Include="Content\css\font-awesome\less\larger.less" />
+    <Content Include="Content\css\font-awesome\less\list.less" />
+    <Content Include="Content\css\font-awesome\less\mixins.less" />
+    <Content Include="Content\css\font-awesome\less\path.less" />
+    <Content Include="Content\css\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\css\font-awesome\less\stacked.less" />
+    <Content Include="Content\css\font-awesome\less\variables.less" />
+    <Content Include="Content\css\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\css\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\css\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\css\font-awesome\scss\_core.scss" />
+    <Content Include="Content\css\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\css\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\css\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\css\font-awesome\scss\_list.scss" />
+    <Content Include="Content\css\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\css\font-awesome\scss\_path.scss" />
+    <Content Include="Content\css\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\css\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\css\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\css\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\css\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\css\fonts\FontAwesome.otf" />
+    <Content Include="Content\images\bgs\Descr.WD3" />
+    <Content Include="Content\images\blog\Descr.WD3" />
+    <Content Include="Content\images\blog\masonry\Descr.WD3" />
+    <Content Include="Content\images\blog\small\Descr.WD3" />
+    <Content Include="Content\images\clients\Descr.WD3" />
+    <Content Include="Content\images\Descr.WD3" />
+    <Content Include="Content\images\page-titles\Descr.WD3" />
+    <Content Include="Content\images\patterns\Descr.WD3" />
+    <Content Include="Content\images\people\Descr.WD3" />
+    <Content Include="Content\images\portfolio\Descr.WD3" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\Descr.WD3" />
+    <Content Include="Content\images\prettyPhoto\dark_square\Descr.WD3" />
+    <Content Include="Content\images\prettyPhoto\default\Descr.WD3" />
+    <Content Include="Content\images\prettyPhoto\facebook\Descr.WD3" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\Descr.WD3" />
+    <Content Include="Content\images\prettyPhoto\light_square\Descr.WD3" />
+    <Content Include="Content\images\shop\Descr.WD3" />
+    <Content Include="Content\images\slider\Descr.WD3" />
+    <Content Include="Content\images\slider\slider-1\Descr.WD3" />
+    <Content Include="Content\images\slider\slider-2\Descr.WD3" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22830</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:22830/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SanaatanGroup.Models.Media>
+@using SanaatanGroup.Models;
+@{
+    ViewBag.Title = "ShowImages";
+    ApplicationDbContext db = new ApplicationDbContext();
+    var media = db._Media.OrderBy(m => m.MediaHeadingId).ToList();
+    var heading = db._MediaHeading.OrderBy(m => m.Id).ToList();
+}
+<div class="sectionWrapper black">
+    <div class="container">
+        <div class="row">
+            <div class="cell-12">
+                <h3 class="block-head">Media</h3>
+                <ul id="accordion" class="accordion">
+                    <li>
+
+
+                        @foreach (var item in heading)
+                        {
+                            var list = db._Media.Where(m => m.MediaHeadingId == item.Id).ToList();
+
+                            <div class="cell-12">
+                                <div class="block-head">@item.MHeading</div>
+                            </div>
+
+
+                            foreach (var cc in list)
+                            {
+
+
+                                <div class="cell-4">
+                                    <a href="~/Content/Media/@cc.ImageUrl"><img src="~/Content/Media/@cc.ImageUrl" alt="" style="height:250px; width:395px;"></a>
+
+
+
+                                </div>
+
+                            }
+                            
+
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

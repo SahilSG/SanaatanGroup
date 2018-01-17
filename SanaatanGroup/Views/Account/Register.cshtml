@@ -1,0 +1,124 @@
+﻿@model SanaatanGroup.Models.RegisterViewModel
+    @using SanaatanGroup.Models
+@{
+    ViewBag.Title = "Register";
+    ApplicationDbContext db = new ApplicationDbContext();
+    //var ct = db._Country.ToList();
+}
+<link rel="stylesheet" href="~/content/bootstrap-datepicker.css">
+<link rel="stylesheet" href="~/content/bootstrap-datepicker.min.css">
+<script type="text/javascript" src="~/Scripts/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap-datepicker.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+
+<script>
+    $(function () {
+        $('.dp').datepicker();
+    });
+
+</script>
+
+
+
+
+<div id="contentWrapper">
+    <div class="page-title title-1">
+        <div class="container">
+            <div class="row">
+                <div class="cell-12">
+                    <h1 class="fx" data-animate="fadeInLeft">Create <span>Account</span></h1>
+                    <div class="breadcrumbs main-bg fx" data-animate="fadeInUp">
+                        <span class="bold">You Are In:</span><a href="#">Home</a><span class="line-separate">/</span><span>Create account</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .text-danger {
+            color: #f25656;
+        }
+    </style>
+    <div class="sectionWrapper">
+        <div class="container">
+            <div class="row">
+                <div class="cell-7 contact-form fx" data-animate="fadeInLeft">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <h4 class="block-head">Registration Form</h4>
+                        
+                        @Html.ValidationSummary("")
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.Email)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            <div class="form-input">
+                                @Html.PasswordFor(m => m.Password)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                            <div class="form-input">
+                                @Html.PasswordFor(m => m.ConfirmPassword)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.FirstName, new { @class = "control-label" })
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.FirstName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.LastName, new { @class = "control-label" })
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.LastName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Phone, new { @class = "control-label" })
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.Phone)
+                            </div>
+                        </div>
+                      
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserImage, new { @class = "control-label" })
+
+                            <input type="file" class="styled" name="jpeg">
+                           
+                        </div>
+
+                        @*<div class="form-group">
+                            @Html.Label("Date of Birth", htmlAttributes: new { @class = "control-label" })<span style="color:red">*</span>
+                            <div class="form-input">
+                                @Html.TextBoxFor(m => m.BirthDate, new { @class = "dp" })
+                                @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                               
+                            </div>
+                        </div>*@
+                        <div class="form-input">
+                            @Html.LabelFor(m => m.Gender, new { @class = "control-label" })
+                            <div class="form-box">
+                                @Html.RadioButtonFor(m => m.Gender, "Male") Male &nbsp;
+                                @Html.RadioButtonFor(m => m.Gender, "Female") Female &nbsp;
+                              
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-buttons">
+                                <input type="submit" class="btn btn-medium main-bg skew-25" value="Register" />
+                            </div>
+                        </div>
+                    }
+                    <hr />
+                 
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,314 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity
+@using SanaatanGroup.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sanaatan Group</title>
+    <meta name="description" content="Sanaatan Group – Endless Transformation Immaculate Governance">
+    <meta name="author" content="Sanaatan">
+
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Put favicon.ico and apple-touch-icon(s).png in the images folder -->
+    <link rel="shortcut icon" href="~/Content/favicon.ico">
+
+    <!-- CSS StyleSheets -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&amp;amp;subset=latin,latin-ext">
+    <link href="~/Content/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/content/css/animate.css">
+    <link rel="stylesheet" href="~/content/css/prettyPhoto.css">
+    <link rel="stylesheet" href="~/content/css/slick.css">
+    <link rel="stylesheet" href="~/content/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/content/css/style.css">
+    <link rel="stylesheet" href="~/content/css/responsive.css">
+    <link href="~/Content/css/skins/skin11.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="~/content/css/ie.css">
+        <script type="text/javascript" src="~/content/js/html5.js"></script>
+    <![endif]-->
+    <!-- Skin style (** you can change the link below with the one you need from skins folder in the css folder **) -->
+
+
+</head>
+<script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=55941510"></script>
+<body style="overflow:hidden" class="bg1">
+
+    <!-- site preloader start -->
+    @*<div class="page-loader">
+            <div class="loader-in"></div>
+        </div>*@
+    <!-- site preloader end -->
+
+    <div class="pageWrapper fixedPage">
+        <div class="login-box">
+            @Html.Partial("LoginModal", new SanaatanGroup.Models.LoginViewModel())
+        </div>
+
+        <!-- Header Start -->
+        <div id="headWrapper" class="clearfix">
+
+            <!-- top bar start -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="cell-5">
+                            <ul>
+                                <li>
+                                    <a href="mailto:support@sanaatangroup.com">
+                                        <i class="fa fa-envelope"></i>support@sanaatangroup.com
+                                    </a>
+                                </li>
+                                <li><span><i class="fa fa-phone"></i> Call Us: +91 (959) 688-1099</span></li>
+                            </ul>
+                        </div>
+                        <div class="cell-7 right-bar">
+                            <ul class="right">
+
+                                @{
+                                    if (User.Identity.GetUserId() == null)
+                                    {
+                                        <li><a href="#" class="login-btn" style="color:#970001"><i class="fa fa-unlock-alt"></i>Login</a></li>
+                                        <li><a href="@Url.Action("Register", "Account")" style="color:#970001"><i class="fa fa-unlock-alt"></i>Register</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li style="color:#970001">@Html.Partial("_LoginPartial")</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- top bar end -->
+
+            <header class="top-head" data-sticky="true">
+                <div class="container">
+                    <div class="row">
+                        <div class="logo cell-3">
+                            <a href="@Url.Action("Index","Home")"></a>
+                        </div>
+                        <div class="cell-9 top-menu">
+                            <!-- top navigation menu start -->
+                            <nav class="top-nav">
+                                <ul>
+                                    <li class="selected">
+                                        <a href="@Url.Action("Index","Home")"><i class="fa fa-home"></i><span>Home</span></a>
+
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-gift"></i><span>About Us</span></a>
+                                        <ul>
+                                            <li><a href="@Url.Action("MessageFromThePrimeMover","Message")">Message From The Prime Mover</a></li>
+                                            <li><a href="@Url.Action("MissionAndValues","Message")">Missions And Values</a></li>
+                                            <li><a href="@Url.Action("KeyDifferentiators","Message")">Key Differentiators</a></li>
+                                            <li><a href="@Url.Action("ExecutiveLeadership","Message")">Executive Leadership</a></li>
+                                            <li><a href="@Url.Action("ServiceVerticals","Message")">Service Verticals</a></li>
+                                            <li><a href="@Url.Action("KeyIndustrialExposure","Message")">Key Industrial Exposure</a></li>
+                                            <li><a href="@Url.Action("OurAlliancesAndAssociates","Message")">Our Alliances And Associates</a></li>
+                                            <li><a href="@Url.Action("CorporateExpedition","Message")">Corporate Expedition</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-copy"></i><span>Be an Ally</span></a>
+                                        @*<ul>
+                                                <li><a href="about-us.html">About us</a></li>
+                                                <li><a href="about-me.html">About me</a></li>
+                                                <li><a href="FAQ.html">FAQ</a></li>
+                                                <li><a href="find-job.html">Find a job</a></li>
+                                                <li><a href="pricing.html">Pricing</a></li>
+                                                <li><a href="services.html">Services</a></li>
+                                                <li>
+                                                    <a href="#">Meet the team</a>
+                                                    <ul>
+                                                        <li><a href="team.html">Meet the team Style 1</a></li>
+                                                        <li><a href="team2.html">Meet the team Style 2</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="page-full.html">Page Full width</a></li>
+                                                <li><a href="page-sidebar.html">Page with Sidebar</a></li>
+                                                <li><a href="404.html">404 Page not found</a></li>
+                                            </ul>*@
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-users"></i><span>Team Sanaatan</span></a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Team Sanaatan MCA Project </a>
+                                                <ul>
+                                                    <li><a href="@Url.Action("TeamSanaatanMcaAp","Home")">Associate Partner</a></li>
+                                                    <li><a href="@Url.Action("TeamSanaatanMcaAd","Home")">Associate Director</a></li>
+                                                    <li><a href="@Url.Action("TeamSanaatanSupportStaff","Home")">Support Staff</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Team Sanaatan GSTN Project </a>
+                                                <ul>
+                                                    <li><a href="@Url.Action("TeamSanaatanGstnAt","Home")">Associate Trainee</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Team Sanaatan Jammu Office </a>
+                                                <ul>
+                                                    <li><a href="@Url.Action("TeamSanaatanJammuAp","Home")">Associate Partner</a></li>
+                                                    <li><a href="@Url.Action("TeamSanaatanJammuAfp","Home")">Affiliate Partner</a></li>
+                                                    <li>
+                                                        <a href="header4.html">Project Management Team </a>
+                                                        <ul>
+                                                            <li><a href="@Url.Action("TeamSanaatanTechnology","Home")">Technology</a></li>
+                                                            <li><a href="@Url.Action("TeamSanaatanEstablishment","Home")">Establishment</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    <li>
+                                        <a href="#"><i class="fa fa-book"></i><span>CSR</span></a>
+
+                                    </li>
+                                    <li><a href="http://careers.sanaatangroup.com/symfony/web/index.php/recruitmentApply/jobs.html"><i class="fa fa-leaf"></i><span>Careers</span></a></li>
+                                    <li><a href="http://concerns.sanaatangroup.com"><i class="fa fa-suitcase"></i><span>Concerns</span></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i><span>Media</span></a></li>
+                                    <li><a href="@Url.Action("Contact","Message")"><i class="fa fa-phone"></i><span>Contact</span></a></li>
+
+                            </nav>
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- Header End -->
+        <!-- Content Start -->
+        <div id="contentWrapper">
+            @RenderBody()
+
+
+        </div>
+        <!-- Content End -->
+        <!-- Footer start -->
+        <footer id="footWrapper">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <!-- main menu footer cell start -->
+                        <div class="cell-3">
+                            <h3 class="block-head">Main Menu</h3>
+                            <ul class="footer-menu">
+                                <li><a href="@Url.Action("Index","Home")">Home Page</a></li>
+
+                                <li><a href="#">CSR</a></li>
+                                <li><a href="http://careers.sanaatangroup.com/symfony/web/index.php/recruitmentApply/jobs.html">Careers</a></li>
+                                <li><a href="http://concerns.sanaatangroup.com">Concerns</a></li>
+                                <li><a href="@Url.Action("Contact","Message")">Contact</a></li>
+                            </ul>
+                        </div>
+                        <!-- main menu footer cell start -->
+                        <!-- Useful Links footer cell start -->
+                        <div class="cell-3">
+                            <h3 class="block-head">Useful Links</h3>
+                            <ul class="footer-menu">
+                                <li><a href="@Url.Action("PrivacyPolicy","Message")">Privacy policy</a></li>
+                                <li><a href="@Url.Action("Disclaimer","Message")">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                        <!-- Useful Links footer cell start -->
+                        <!-- Group Websites footer cell start -->
+                        <div class="cell-3">
+                            <h3 class="block-head">Group Websites</h3>
+                            <ul class="footer-menu">
+                                <li><a href="http://www.cfcdsc.com/">Cashmere e-Filing Centre</a></li>
+                                <li><a href="http://www.takshillaa.com/">Takshillaa - The Knowledge Hub</a></li>
+                                <li><a href="http://www.chambersamicuscuriae.com/">Chambers Amicus Curiae</a></li>
+                                <li><a href="http://www.saferoofs.com/">Saferoofs</a></li>
+                                <li><a href="http://eoi.divineinvestors.in/">Divine Investors</a></li>
+                                <li><a href="http://www.corporatehealing.in/">Corporate Healing</a></li>
+                            </ul>
+                        </div>
+                        <!-- Useful Links footer cell start -->
+                        <!-- Our Friends footer cell start -->
+                        <div class="cell-3">
+                            <h3 class="block-head">Contact us</h3>
+                            <ul>
+                                @*<li class="footer-contact"><i class="fa fa-home"></i><span>123, Second Street name, Address.</span></li>*@
+                                <li class="footer-contact">
+                                    <i class="fa fa-globe"></i><span>
+                                        <a href="mailto:support@sanaatangroup.com">
+                                            support@sanaatangroup.com
+                                        </a>
+                                    </span>
+                                </li>
+                                <li class="footer-contact"><i class="fa fa-phone"></i><span>+91 (959) 688-1099</span></li>
+                                @*<li class="footer-contact"><i class="fa fa-map-marker"></i><span><a href="contact.html#map_canvas">View our map</a></span></li>*@
+                            </ul>
+                        </div>
+                        <!-- Our Friends footer cell start -->
+                        <!-- Tags Cloud footer cell start -->
+                        <!-- Tags Cloud footer cell start -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer bottom bar start -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <!-- footer copyrights left cell -->
+                        <div class="copyrights cell-5">&copy; Copyrights <b>Sanaatan Group</b> @System.DateTime.Now.Year<i>.</i> All rights reserved. <span><a href="@Url.Action("PrivacyPolicy","Home")">Privacy policy</a> | <a href="@Url.Action("Disclaimer","Home")">Disclaimer</a></span></div>
+
+                        <!-- footer social links right cell start -->
+                        <div class="cell-7">
+                            <ul class="social-list right">
+                                @* <li class="skew-25"><a href="#" data-title="dribbble" data-tooltip="true"><span class="fa fa-dribbble skew25"></span></a></li>*@
+                                <li class="skew-25"><a href="https://www.facebook.com/Sanaatan-Group-1520416918260039" data-title="facebook" data-tooltip="true"><span class="fa fa-facebook skew25"></span></a></li>
+                                <li class="skew-25"><a href="https://www.linkedin.com/company/sanaatan-group" data-title="linkedin" data-tooltip="true"><span class="fa fa-linkedin skew25"></span></a></li>
+                                @*<li class="skew-25"><a href="#" data-title="skype" data-tooltip="true"><span class="fa fa-skype skew25"></span></a></li>
+                                    <li class="skew-25"><a href="#" data-title="tumbler" data-tooltip="true"><span class="fa fa-tumblr skew25"></span></a></li>
+                                    <li class="skew-25"><a href="#" data-title="twitter" data-tooltip="true"><span class="fa fa-twitter skew25"></span></a></li>
+                                    <li class="skew-25"><a href="#" data-title="YouTube" data-tooltip="true"><span class="fa fa-youtube skew25"></span></a></li>*@
+                            </ul>
+                        </div>
+                        <!-- footer social links right cell end -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- footer bottom bar end -->
+
+        </footer>
+        <!-- Footer end -->
+        <!-- Back to top Link -->
+        <div id="to-top" class="main-bg"><span class="fa fa-chevron-up"></span></div>
+
+    </div>
+
+    <!-- Load JS siles -->
+
+    <script src="~/Content/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Content/js/jquery.easypiechart.min.js"></script>
+    <script src="~/Content/js/jquery.elevateZoom-3.0.8.min.js"></script>
+
+    <script src="~/Content/js/jquery.placeholder.js"></script>
+    <script src="~/Content/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Content/js/jquery.sharrre.min.js"></script>
+    <script src="~/Content/js/jquery.totemticker.min.js"></script>
+    <script src="~/Content/js/menu_handler.js"></script>
+
+    <script src="~/Content/js/slick.min.js"></script>
+    <script src="~/Content/js/telemetry.js"></script>
+    <script src="~/Content/js/waypoints.min.js"></script>
+    <script src="~/Content/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/Content/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/Content/js/script.js"></script>
+
+
+</body>
+</html>

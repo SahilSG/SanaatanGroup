@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SanaatanGroup.Models.Media>
+@using SanaatanGroup.Models;
+@{
+    ViewBag.Title = "List";
+    ApplicationDbContext db = new ApplicationDbContext();
+}
+
+<div class="block">
+    <div class="block-head">
+        <div class="caption">
+
+            <span class="caption-subject font-blue-hoki bold uppercase" style="margin-left:20px"> Media</span>
+
+        </div>
+    </div>
+    <div class="cell-12 fx" data-animate="fadeInLeft">
+        <a href="@Url.Action("Create", "Media")" class="pull-right btn btn-xs btn-primary">Add Media</a>
+        <a href="@Url.Action("Create","MediaHeading")" class="pull-left btn btn-xs btn-primary">Add Heading </a> 
+        <table class="table-style2">
+            <thead>
+
+                <tr>
+                    <th> Heading</th>
+                    <th> Image Name</th>
+
+
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var heading = db._MediaHeading.Find(item.MediaHeadingId);
+                    <tr>
+                        <td>
+                            @heading.MHeading
+
+                        </td>
+
+                        <td>
+                            @item.ImageName
+
+                        </td>
+
+
+
+                        <td><a href="@Url.Action("Edit","Media", new { id=item.Id})">Edit</a></td>
+                        <td><a href="@Url.Action("Delete", "Media", new {id=item.Id})">Delete</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+
+    </div>
+
+</div>
+
+

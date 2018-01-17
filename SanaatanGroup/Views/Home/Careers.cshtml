@@ -1,0 +1,321 @@
+﻿@model SanaatanGroup.Models.JobSeeker
+@using SanaatanGroup.Models;
+
+@{
+    ViewBag.Title = "Careers";
+    ApplicationDbContext db = new ApplicationDbContext();
+    var ct = db._Country.ToList();
+
+}
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        if ($("#Country option:selected").val() != 41) {
+
+        }
+        else {
+            $("#State").empty();
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("States")',
+                dataType: 'json',
+                data: { cid: $("#Country").val() },
+                success: function (states) {
+
+                    $("#State").empty();
+                    $("#State").append('<option value="null">Please Select State</option>');
+                    $.each(states, function (i, state) {
+                        $("#State").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                    });
+                    $("#State").append('<option value="9999">Others</option>');
+                    $("#State").prop("disabled", false);
+                },
+                error: function (ex) {
+
+                }
+            });
+        }
+        $("#Country").change(function () {
+            if ($("#Country").val() == 41) {
+                $("#State").empty();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("States")',
+                    dataType: 'json',
+                    data: { cid: $("#Country").val() },
+                    success: function (states) {
+
+                        $("#State").empty();
+                        $("#State").append('<option value="null">Please Select State</option>');
+                        $.each(states, function (i, state) {
+                            $("#State").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                        });
+                        $("#State").append('<option value="9999">Others</option>');
+                        $("#State").prop("disabled", false);
+                    },
+                    error: function (ex) {
+
+                    }
+                });
+            }
+            else {
+                $("#State").empty();
+                $("#State").append('<option value="9999">Others</option>');
+
+                $("#City").empty();
+                $("#City").append('<option value="9999">Others</option>');
+            }
+            return false;
+        }),
+        $("#State").change(function () {
+
+            $("#City").empty();
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Cities")',
+                dataType: 'json',
+                data: { sid: $("#State").val() },
+                success: function (cities) {
+                    $("#City").empty();
+                    $("#City").append('<option value="null">Please Select City</option>');
+                    $.each(cities, function (i, city) {
+                        $("#City").append('<option value="' + city.Value + '">' + city.Text + '</option>');
+                    });
+                    $("#City").append('<option value="9999">Others</option>');
+                    $("#City").prop("disabled", false);
+                },
+                error: function (ex) {
+
+                }
+            });
+            return false;
+        })
+    });
+</script>
+<div class="sectionWrapper">
+    <div class="container">
+        <div class="row">
+            <div class="cell-12 contact-form fx" data-animate="fadeInLeft">
+
+                @using (Html.BeginForm("Careers", "Home", FormMethod.Post, new { @class = "form-horizontal form-bordered", role = "form", encType = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h4 class="block-head">Careers</h4>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Name</label>
+                            <div class="form-input">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <div class="form-input">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Address</label>
+                            <div class="form-input">
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Country</label>
+                            <div class="form-input">
+                                @Html.DropDownListFor(model => model.Country, new SelectList(ct, "Id", "CountryName", null), "Please Select Country", new { @class = "form-control", @id = "Country" })
+                                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">State</label>
+                            <div class="form-input">
+                                @Html.DropDownListFor(model => model.State, new SelectList(string.Empty, "Value", "Text"), "Please Select State", new { @class = "form-control", @id = "State" })
+                                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">City</label>
+                            <div class="form-input">
+                                @Html.DropDownListFor(model => model.City, new SelectList(string.Empty, "Value", "Text"), "Please Select City", new { @class = "form-control", @id = "City" })
+                                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Date Of Birth</label>
+                            <div class="form-input">
+                                @Html.TextBoxFor(model => model.DOB, new { @class = "form-control datepicker", placeholder = "dd/MM/YYYY" })
+                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Mobile</label>
+                            <div class="form-input">
+                                @Html.TextBoxFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Alternate Number</label>
+                            <div class="form-input">
+                                @Html.EditorFor(model => model.AlternateNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AlternateNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Graduation</label>
+                            <select id="Graduation" name="Graduation" class="form-control">
+                                <option value="null">Select</option>
+                                <option>Not Pursuing Graduation</option>
+                                <option>B.A</option>
+                                <option>B.Arch</option>
+                                <option>BCA</option>
+                                <option>B.B.A</option>
+                                <option>B.Com</option>
+                                <option>B.Ed</option>
+                                <option>BDS</option>
+                                <option>BHM</option>
+                                <option>B.Pharma</option>
+                                <option>B.Sc</option>
+                                <option>B.Tech/B.E.</option>
+                                <option>LLB</option>
+                                <option>MBBS</option>
+                                <option>Diploma</option>
+                                <option>BVSC</option>
+                                <option>Other</option>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.Graduation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Post Graduation</label>
+                            <select id="Postgraduation" name="Postgraduation" class="form-control">
+                                <option value="null">Select</option>
+                                <option>Not Pursuing PostGraduation</option>
+                                <option>CA</option>
+                                <option>CS</option>
+                                <option>ICWA (CMA)</option>
+                                <option>Integrated PG</option>
+                                <option>LLM</option>
+                                <option>M.A</option>
+                                <option>M.Arch</option>
+                                <option>M.Com</option>
+                                <option>M.Ed</option>
+                                <option>M.Pharma</option>
+                                <option>M.Sc</option>
+                                <option>M.Tech</option>
+                                <option>MBA/PGDM</option>
+                                <option>MCA</option>
+                                <option>MS</option>
+                                <option>PG Diploma</option>
+                                <option>MVSC</option>
+                                <option>MCM</option>
+                                <option>Other</option>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.Postgraduation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Experience(Years)</label>
+                            <select id="EYears" name="EYears" class="form-control">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>20+</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="form-group">
+                            <label class="control-label">Experience(Months)</label>
+                            <select id="EMonths" name="EMonths" class="form-control">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="cell-4">
+                        <div class="col_full">
+                            @Html.Label("Upload Resume", htmlAttributes: new { @class = "control-label " })
+                            @Html.TextBoxFor(model => model.ResumeFile, new { type = "file" })
+                            @Html.ValidationMessageFor(model => model.ResumeFile, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    <div class="cell-12">
+                        <div class="form-buttons">
+                            <input type="submit" value="Submit" class="btn btn-medium main-bg skew-25 pull-right" style="margin-right:250px">
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+

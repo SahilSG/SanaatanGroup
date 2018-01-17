@@ -1,0 +1,81 @@
+﻿@model SanaatanGroup.Models.SanaatanResource
+@using SanaatanGroup.Models;
+@{
+    ViewBag.Title = "Create";
+    ApplicationDbContext db = new ApplicationDbContext();
+
+}
+
+
+<div class="sectionWrapper">
+    <div class="container">
+        <div class="row">
+            <div class="cell-12 contact-form fx" data-animate="fadeInLeft">
+@using (Html.BeginForm("Create", "SanaatanResource", FormMethod.Post, new { @class = "form-horizontal form-bordered", role = "form", encType = "multipart/form-data" }))
+            {
+     @Html.AntiForgeryToken()
+            <h4 class="block-head">Create Sanaatan Resource</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <div class="form-input">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+                       
+
+                <div class="col_full">
+                    @Html.Label("Upload Image", htmlAttributes: new { @class = "control-label " })
+                    @Html.TextBoxFor(model => model.Image, new { type = "file" })
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Project</label>
+                    <div class="form-input">
+                        @Html.DropDownListFor(model => model.Project, new List<SelectListItem>() { new SelectListItem { Text = "Please Select Project", Value = "Please Select Project" }, new SelectListItem { Text = "MCA 21 V2", Value = "MCA 21 V2" }, new SelectListItem { Text = "GSTN TPAC", Value = "GSTN TPAC" }, new SelectListItem { Text = "GSTN TOAC", Value = "GSTN TOAC" }, new SelectListItem { Text = "Jammu BO", Value = "Jammu BO" } }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Project, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Key Skills</label>
+                    <div class="form-input">
+                        @Html.EditorFor(model => model.KeySkills, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.KeySkills, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Designation</label>
+                    <div class="form-input">
+                        @Html.DropDownListFor(model => model.Designation, new List<SelectListItem>() { new SelectListItem { Text = "Please Select Designation", Value = "Please Select Designation" }, new SelectListItem { Text = "Associate Trainee", Value = "Associate Trainee" }, new SelectListItem { Text = "Associate Partner", Value = "Associate Partner" }, new SelectListItem { Text = "Executive Partner", Value = "Executive Partner" }, new SelectListItem { Text = "Executive Trainee", Value = "Executive Trainee" }, new SelectListItem { Text = "Managing Partner", Value = "Managing Partner" }, new SelectListItem { Text = "Team Leader", Value = "Team Leader" }, new SelectListItem { Text = "Quality Analyst", Value = "Quality Analyst" }, new SelectListItem { Text = "Trainer", Value = "Trainer" }, new SelectListItem { Text = "Associate Director", Value = "Associate Director" }, new SelectListItem { Text = "Trainer", Value = "Trainer" }, new SelectListItem { Text = "Executive HR", Value = "Executive HR" }, new SelectListItem { Text = "Executive Software Developer", Value = "Executive Software Developer" }, new SelectListItem { Text = "Senior IT Consultant", Value = "Senior IT Consultant" }, new SelectListItem { Text = "Executive Accountant", Value = "Executive Accountant" }, new SelectListItem { Text = "Executive Project Manager", Value = "Executive Project Manager" }, new SelectListItem { Text = "Chief Technical Officer", Value = "Chief Technical Officer" }, new SelectListItem { Text = "Executive Strategic Business", Value = "Executive Strategic Business" }, new SelectListItem { Text = "Director Sales", Value = "Director Sales" }, new SelectListItem { Text = "Director Services", Value = "Director Services" }, new SelectListItem { Text = "Assistant Sales", Value = "Assistant Sales" }, new SelectListItem { Text = "Executive Establishment", Value = "Executive Establishment" }, new SelectListItem { Text = "Other", Value = "Other" } }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Status</label>
+
+                    <select id="Status" name="Status" class="form-control">
+                        <option value="null">Select</option>
+                        <option>Active</option>
+                        <option>Left</option>
+                        <option>ReJoin</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-actions text-right">
+                    <input type="submit" value="Create" class="btn btn-primary">
+                </div>
+            }
+
+        </div>
+            </div></div></div>
+
+
+
+
+

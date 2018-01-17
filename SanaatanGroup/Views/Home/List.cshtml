@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SanaatanGroup.Models.JobSeeker> 
+
+@{
+    ViewBag.Title = "JobSeekers List";
+}
+        
+            <div class="block">
+                <div class="block-head">
+                    <div class="caption">
+
+                        <span class="caption-subject font-blue-hoki bold uppercase" style="margin-left:20px">JobSeekers List</span>
+
+                    </div>
+                </div>
+                <div class="cell-12 fx" data-animate="fadeInLeft">
+                    <table class="table-style2">
+                        <thead>
+                            <tr>
+                                <th class="main-bg">
+                                    Name
+                                </th>
+                                <th class="main-bg">
+                                    Date Of Birth
+                                </th>
+
+                                <th class="main-bg">
+                                    Email
+                                </th>
+                                <th class="main-bg">
+                                    Experience
+                                </th>
+                                <th class="main-bg">
+                                    Graduation
+                                </th>
+                                <th class="main-bg">
+                                    Mobile
+                                </th>
+
+                                <th class="main-bg">Command</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                
+                                <tr>
+                                    <td>
+                                        @item.Name
+
+                                    </td>
+                                    <td>
+                                        @item.DOB.ToString("dd/M/y")
+                                    </td>
+                                    <td>
+                                        @item.Email
+                                    </td>
+                                    <td>
+                                        @item.ProfessionalExperience
+                                    <td>
+                                        @item.Graduation
+
+                                    </td>
+                                    <td>@item.Mobile</td>
+
+
+                                    <td>
+                                        @Html.ActionLink("Details", "Details", new { Id = item.Id })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+
+                </div>
+
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+            <!-- END EXAMPLE TABLE PORTLET-->
+       

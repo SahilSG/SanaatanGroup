@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SanaatanGroup.Models.Event>
+@using SanaatanGroup.Models
+@{
+    ViewBag.Title = "EventList";
+    int i = 1;
+}
+
+
+<div class="block">
+    <div class="block-head">
+        <div class="caption">
+
+            <span class="caption-subject font-blue-hoki bold uppercase" style="margin-left:20px">Events</span>
+
+        </div>
+    </div>
+    <div class="cell-12 fx" data-animate="fadeInLeft">
+        <a href="@Url.Action("Event","Media")" class="pull-right btn btn-xs btn-primary">Add Event</a>
+        <table class="table-style2">
+            <thead>
+                <tr>
+
+
+                    <th class="main-bg">ID</th>
+
+                    <th class="main-bg">Title </th>
+                    <th class="main-bg">Description</th>
+
+                    <th class="main-bg">Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+
+                {
+                    <tr style="text-align: Center">
+
+                        <td>@i</td>
+
+                        <td>@item.Title</td>
+
+
+                        <td>@Html.Raw(item.Description)</td>
+
+                        <td><a href="@Url.Action("Delete1","Media", new { id=item.Id})">Delete</a></td>
+
+                    </tr>
+
+                    i++;
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<br />
+

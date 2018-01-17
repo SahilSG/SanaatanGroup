@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using SanaatanGroup.Models
+@if (Request.IsAuthenticated)
+{
+    var um = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+    var adinrole = um.IsInRole(Context.User.Identity.GetUserId(), "Administrator");
+    var suinrole = um.IsInRole(Context.User.Identity.GetUserId(), "Superuser");
+    var kpinrole = um.IsInRole(Context.User.Identity.GetUserId(), "KP");
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+        <li style="color:#ff6a00">
+            @{
+                ApplicationDbContext db = new ApplicationDbContext();
+                var uid = User.Identity.GetUserId();
+                var u = (from us in db.Users where us.Id == uid select us.FirstName).Single();
+            }
+            @Html.ActionLink("Hello " + u + "!", "", "", routeValues: null, htmlAttributes: new { title = "Manage", @style = "color:#FF6A00" })
+        </li>
+
+                @*if (adinrole || suinrole)
+                {
+                    <li>
+                        <a href="@Url.Action("Index", "Administration/Admin")" target="_blank"><i class="icon-dashboard"></i> Manage</a>
+                    </li>
+
+                }
+                else if (kpinrole)
+                {
+                    <li>
+                        <a href="@Url.Action("Index", "Administration/Admin")" target="_blank"><i class="icon-dashboard"></i> My Updates</a>
+                    </li>
+                }*@
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-line-power"></i>Log off</a>
+
+                </li>
+                    }
+
+                }

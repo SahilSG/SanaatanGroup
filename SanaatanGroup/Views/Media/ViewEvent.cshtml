@@ -1,0 +1,43 @@
+﻿@model SanaatanGroup.Models.Event
+@using SanaatanGroup.Models;
+@{
+    ViewBag.Title = "ViewEvent";
+}
+
+<div id="contentWrapper">
+    <div class="page-title title-1">
+        <div class="container">
+            <div class="row">
+                <div class="cell-12">
+                    <h1 class="fx" data-animate="fadeInLeft">Our <span>Events</span></h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sectionWrapper">
+        <div class="container">
+            <div class="row">
+  
+                <div class="cell-12 masonry">
+                    <div class="blog-posts">
+                       
+                            <div class="post-item fx" data-animate="fadeInLeft">
+                                <div class="post-image post-video">
+                                    
+                                    <iframe src='@Model.VideoUrl' width='1100' height='300' style='width:1100px;height:300px;'></iframe>
+                                </div>
+                              
+                            </div>
+                        
+
+
+                      
+                    </div>
+                </div>
+
+              </div>
+            </div>
+        </div>
+    </div>
